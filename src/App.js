@@ -99,7 +99,8 @@ const NavButton = styled.button`
     transform:scale(1.1);
   }
   :focus{
-    outline:none
+    outline:none;
+    outline-color: transparent;
   }
 `;
 

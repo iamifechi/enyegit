@@ -39,7 +39,7 @@ body{
     margin:0;
 }
 .header{
-    font-size:calc(2vmin + 10px);
+    font-size:calc(2vmin + 13px);
     padding:20px;
     font-weight:bold;
     width: 100%;
@@ -146,6 +146,7 @@ body{
     }
     button:focus{
         outline:none;
+        outline-color: transparent;
     }
 
 }
