@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import Geocode from "react-geocode";
-Geocode.setApiKey("AIzaSyBWzinOeh3ezDj0woIV4N1PTMbEpuQa_9M");
+Geocode.setApiKey("");
 Geocode.setLanguage("en");
 Geocode.enableDebug();
 const getLocation = (lat,lng)=>{
