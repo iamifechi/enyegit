@@ -2,7 +2,8 @@
 body {
   background: white;
   height: fit-content;
-  min-height: 100vh;
+  min-height: 600px;
+  min-width: 380px;
   width: 100vw;
   position: relative;
   text-align: center;
@@ -29,6 +30,7 @@ body {
   flex-wrap: wrap;
   width: 100%;
   height: 20vh;
+  min-height: 80px;
   margin: 0;
 }
 
@@ -180,6 +182,7 @@ form {
   text-align: center;
   margin: auto;
   height: 10vh;
+  min-height: 70px;
 }
 
 form label {
@@ -256,6 +259,7 @@ form .search-input:focus {
   align-items: center;
   position: relative;
   padding-bottom: 100px;
+  min-height: 400px;
 }
 
 .profile_cards {
@@ -301,7 +305,7 @@ form .search-input:focus {
   font-weight: bold;
 }
 
-.profile_cards p.name p.username {
+.profile_cards p.username {
   margin-top: 18%;
 }
 

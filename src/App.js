@@ -12,15 +12,18 @@ window.onscroll = () =>{
 
 const scrollFunction=()=>{
   let scrollPosition = window.scrollY;
-  let backToTopBtn = document.getElementById("backToTop");
-  let navBtn = document.getElementById("nav-button");
+  const backToTopBtn = document.getElementById("backToTop");
+  const navBtn = document.getElementById("nav-button");
 
-  if(scrollPosition > 500){
+  if(scrollPosition > 10){
     navBtn.style.display = "none";
+  }else{
+    navBtn.style.display = "block"
+  }
+  if(scrollPosition > 500){
     backToTopBtn.style.display ="block"
   }
   else{
-    navBtn.style.display = "block"
     backToTopBtn.style.display = "none";
   }
 }
@@ -64,7 +67,7 @@ const BackToTop = styled.button`
 const NavButton = styled.button`
   position:fixed;
   top:6vh;
-  right:15px;
+  right:35px;
   padding:10px;
   width:50px;
   height:50px;
@@ -110,9 +113,9 @@ const sorting = (profiles) => {
   let payment = profiles.map(v=>v.PaymentMethod);
   let card = profiles.map(v=>v.CreditCardType);
 
-  let genderOption = gender.filter((v,i)=> i === gender.indexOf(v))
-  let paymentOption = payment.filter((v,i)=>i === payment.indexOf(v));
-  let cardOption = card.filter((v,i)=>i === card.indexOf(v));
+  let genderOption = gender.filter((v,i)=> i === gender.indexOf(v)).sort();
+  let paymentOption = payment.filter((v,i)=>i === payment.indexOf(v)).sort();
+  let cardOption = card.filter((v,i)=>i === card.indexOf(v)).sort();
 
 
   sortOptions = [
