@@ -11,11 +11,8 @@ body{
     background:white;
     height:fit-content;
     min-height:600px;
-    min-width:380px;
-    width:100vw;
     position:relative;
     text-align: center;
-    overflow-x:hidden;
 }
 .App{
     text-align: center;
@@ -33,7 +30,7 @@ body{
 
 .navbar{
     display:flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items:center;
     flex-wrap:wrap;
     width:100%;
@@ -42,10 +39,11 @@ body{
     margin:0;
 }
 .header{
-    font-size:calc(2vmin + 13px);
+    font-size:calc(2vmin + 12px);
     padding:20px;
     font-weight:bold;
-    width: 100%;
+    text-align:left;
+    //width: 100%;
 }
 
 @keyframes animate-left{
@@ -65,7 +63,7 @@ body{
     right:-270px;
     width:260px;
     height: 100vh;
-    z-index:1;
+    z-index:2;
     display:flex;
     flex-direction:column;
     justify-content: flex-start;
@@ -84,12 +82,11 @@ body{
 }
 
 #sortMenu.push-out{
-   // right:-270px;
-    animation:animate-left 1s ease-in-out;
+    animation:animate-left 0.5s ease-in-out;
 }
 #sortMenu.push-in{
     right:0;
-    animation:animate-right 1s ease-in-out;
+    animation:animate-right 0.5s ease-in-out;
 }
 
 .dropdown{
@@ -168,12 +165,9 @@ body{
     }
 }
 
-
-
-
 form{
     position: relative;
-    width:70%;
+    width:90%;
     text-align:center;
     margin:auto;
     height:10vh;
@@ -248,8 +242,20 @@ form{
     justify-content:space-evenly;
     align-items:center;
     position:relative;
+    padding-top:20px;
     padding-bottom:100px;
     min-height:400px;
+
+    .search-sort{
+        width:100%;
+        padding:0;
+        margin:0;
+        margin-top:-20px;
+        position:absolute;
+        top:0;
+        left:0;
+        font-size:1em;
+    }
 }
 
 .profile_cards{
@@ -380,8 +386,7 @@ form{
     animation: opacity 2ms ease-in-out ;
     transition:opacity 1s ease-in-out,animation 1s ease-in-out;
 }
-// .last_card.animate-opacity.profile_cards{
-// }
+
 
 #pagination-buttons{
     position:absolute;
@@ -395,12 +400,4 @@ form{
     filter:drop-shadow(0px 0px 10px rgba(80, 80, 80, 0.26));
 }
 
-.search-sort{
-    width:100%;
-    padding:0;
-    margin:0;
-    margin-top:-20px;
-    position:absolute;
-    top:0;
-    left:0;
-}
+

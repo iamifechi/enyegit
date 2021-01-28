@@ -15,8 +15,8 @@ const scrollFunction=()=>{
   const backToTopBtn = document.getElementById("backToTop");
   const navBtn = document.getElementById("nav-button");
 
-  if(scrollPosition > 10){
-    navBtn.style.display = "none";
+  if(scrollPosition > 0){
+   // navBtn.style.display = "none";
   }else{
     navBtn.style.display = "block"
   }
@@ -65,9 +65,9 @@ const BackToTop = styled.button`
 `;
 
 const NavButton = styled.button`
-  position:fixed;
+  position:absolute;
   top:6vh;
-  right:35px;
+  right:28px;
   padding:10px;
   width:50px;
   height:50px;
@@ -109,14 +109,9 @@ const NavButton = styled.button`
 
 const sorting = (profiles) => {
   let sortOptions = [];
-  let gender = profiles.map(v=>v.Gender);
-  let payment = profiles.map(v=>v.PaymentMethod);
-  let card = profiles.map(v=>v.CreditCardType);
-
-  let genderOption = gender.filter((v,i)=> i === gender.indexOf(v)).sort();
-  let paymentOption = payment.filter((v,i)=>i === payment.indexOf(v)).sort();
-  let cardOption = card.filter((v,i)=>i === card.indexOf(v)).sort();
-
+  const genderOption = profiles.map(v=>v.Gender).filter((v,i,a)=> i === a.indexOf(v)).sort();;
+  const paymentOption = profiles.map(v=>v.PaymentMethod).filter((v,i,a)=>i === a.indexOf(v)).sort();;
+  const cardOption = profiles.map(v=>v.CreditCardType).filter((v,i,a)=>i === a.indexOf(v)).sort();
 
   sortOptions = [
     {name:"Gender",options:[...genderOption]},
@@ -164,30 +159,33 @@ class App extends React.Component {
   }
 
   handleSearch =(e)=>{
+    if(e.target.value.length===0)this.defaultProfileView()
     
     this.setState(()=>{
-      return {
-        searchInput:e.target.value,
-        action: "search"
-      }
-    },
-    ()=>{
-      if(this.state.searchInput===""){
-        this.setState({action:null})
-      }
-      else{  
-        let input = this.state.searchInput.toLowerCase();
-        let searchResults = [...this.state.profiles]
-      .filter(user=>{
-        let firstName = user.FirstName.toLowerCase();
-        let lastName = user.LastName.toLowerCase();     
-        return firstName.includes(input)||
-        lastName.includes(input) ? true : false;
-    });
-      this.renderPage(searchResults);
-      }
-
+          return {
+            searchInput:e.target.value,
+            action: "search"
+          }
+        },
+        ()=>{
+          if(this.state.searchInput===""){
+            this.setState({action:null})
+          }
+          else{  
+            let input = this.state.searchInput.toLowerCase();
+            let searchResults = [...this.state.profiles]
+          .filter(user=>{
+            let firstName = user.FirstName.toLowerCase();
+            let lastName = user.LastName.toLowerCase();     
+            return firstName.includes(input)||
+            lastName.includes(input) ? true : false;
+        });
+          this.renderPage(searchResults);
+          }
+        
+        //})
     })
+   
   }
 
   renderPage = (array) =>{
@@ -254,7 +252,6 @@ class App extends React.Component {
         })}
 
     }
-     
     
     else{this.fetchRecords();}
     
